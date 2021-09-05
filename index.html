@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>crud system</title>
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" class="form-control" id="productName" />
+        <div id="alertName" class="alert alert-danger">
+          <p>prodect name invalid</p>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="productPrice">Product price</label>
+        <input type="number" class="form-control" id="productPrice" />
+        <div id="alertPrice" class="alert alert-danger">
+          <p>prodect name invalid</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="productCategory">Product category</label>
+        <input type="text" class="form-control" id="productCategory" />
+        <div id="alertCategory" class="alert alert-danger">
+          <p>prodect Category invalid</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="productDesc">Product description</label>
+        <textarea  type="text" class="form-control" id="productDesc"></textarea>
+        <div id="alertdesc" class="alert alert-danger">
+          <p>prodect description invalid</p>
+        </div>
+      </div>
+
+      <button id="myBtn" class="btn btn-outline-info" onclick=" add()">Add Product</button>
+       
+      
+    </div>
+
+    <div class="container">
+      <input
+        type="text"
+        onkeyup="search(this.value)"
+        placeholder="search......"
+        class="form-control w-75 m-auto"
+      />
+
+      <table class="table mt-5 table-striped">
+        <thead>
+          <th>index</th>
+          <th>productName</th>
+          <th>productPrice</th>
+          <th>productCategory</th>
+          <th>productDescription</th>
+          <th>update</th>
+          <th>delete</th>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+    
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
