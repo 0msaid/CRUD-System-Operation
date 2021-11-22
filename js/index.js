@@ -7,9 +7,9 @@ var alertName = document.getElementById("alertName");
 var alertPrice  = document.getElementById("alertPrice");
 var alertCategory  = document.getElementById("alertCategory");
 var alertdesc  = document.getElementById("alertdesc");
+var currentIndex = 0;
 
 var productContainer;
-var currentIndex = 0;
 if (localStorage.getItem("productList") == null) {
   productContainer = [];
 } else {
@@ -43,7 +43,7 @@ function addProduct() {
     productContainer.push(product);
     localStorage.setItem("productList", JSON.stringify(productContainer));
     disblayProduct();
-    clearForm();
+    // clearForm();
     
   } 
 }
@@ -56,39 +56,23 @@ function clearForm() {
 }
 
 function disblayProduct() {
-  cortona = "";
+  cortoona = "";
   for (i = 0; i < productContainer.length; i++) {
-    cortona += `    <tr>
+    cortoona += `    <tr>
         <td>${i}</td>
         <td>${productContainer[i].name}</td>
         <td>${productContainer[i].price}</td>
         <td>${productContainer[i].category} </td>
         <td>${productContainer[i].descrabtion} </td>
 
-        <td><i class="far fa-edit" onclick="updateProduct(${i})"></i></td>
+        <td><i class="far fa-edit ms-2" onclick="updateProduct(${i})"></i></td>
         
-        <td><i class="far fa-trash-alt font-weight-bolder " onclick="deletProduct(${i})"></i></td>
+        <td><i class="far fa-trash-alt font-weight-bolder ms-2 " onclick="deletProduct(${i})"></i></td>
     
     </tr>`;
   }
-  document.getElementById("tableBody").innerHTML = cortona;
-}
-
-
-
-// function validationInput() {
-//   if (
-//     productNameInput.value != "" &&
-//     productPriceInput.value != "" &&
-//     productCategoryInput.value != "" &&
-//     productDescInput.value != ""
-//   ) {
-//     return true;
-
-//   } else {
-//     return false;
-//   }
-// }
+  document.getElementById("tableBody").innerHTML = cortoona;
+} 
 
 function deletProduct(index) {
   productContainer.splice(index, 1);
@@ -103,19 +87,18 @@ function search(trem) {
       productContainer[i].name.toLowerCase().includes(trem.toLowerCase()) ||
       productContainer[i].category.toLowerCase().includes(trem.toLowerCase())
     ) {
-      cortona += `    <tr>
-            <td>${i}</td>
-            <td>${productContainer[i].name}</td>
-            <td>${productContainer[i].price}</td>
-            <td>${productContainer[i].category} </td>
-            <td>${productContainer[i].descrabtion} </td>
-    
-            <td>
-                <button  class="btn btn-warning">update</button>
-    
-            </td>
-            <td><button onclick="deletProduct(${i})" class="btn btn-danger">delete</button></td>
-        </tr>`;
+      cortona += `     <tr>
+      <td>${i}</td>
+      <td>${productContainer[i].name}</td>
+      <td>${productContainer[i].price}</td>
+      <td>${productContainer[i].category} </td>
+      <td>${productContainer[i].descrabtion} </td>
+
+      <td><i class="far fa-edit" onclick="updateProduct(${i})"></i></td>
+      
+      <td><i class="far fa-trash-alt font-weight-bolder " onclick="deletProduct(${i})"></i></td>
+  
+  </tr>`;
     }
   }
   document.getElementById("tableBody").innerHTML = cortona;
@@ -131,7 +114,7 @@ function updateProduct(index)
   productDescInput.value =productContainer[index].descrabtion
   myBtn.innerHTML ="updateProdect"
 
-
+  
 }
 
 
@@ -151,7 +134,7 @@ function addUpdate()
 
 function validtionName()
 {
-  var ragex = /^[A-Z][a-z]{3,8}[0-9]$/
+  var ragex = /^[A-Z][a-z]{3,8}[0-9]{1,3}$/
   if(ragex.test(productNameInput.value)){
 
     
@@ -164,7 +147,6 @@ function validtionName()
     return false
   }
 }
-
 
 function validtionPrice()
 {
@@ -213,3 +195,8 @@ function validtiondesc()
     return false
   }
 }
+
+
+
+
+

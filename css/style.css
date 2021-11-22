@@ -4,3 +4,47 @@
 .form-group{
     margin-bottom: 1rem;
 }
+
+
+header,
+.header-2 { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    height: 130px;
+    background-color: #2a8a85;
+    color: #fff;
+    font-size: 70px;
+}
+header i {margin-right: 10px;}
+
+.header-2 { 
+    height: 30px;
+    background-color: #e2dfdf;
+    color: #2a8a85;
+}
+
+label{
+    margin-left: 13%;
+}
+#myBtn{
+    margin-left: 40%;
+  
+}
+
+.to-top-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    color: #fff;
+    background-color: #2a8a85;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
