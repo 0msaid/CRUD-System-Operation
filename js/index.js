@@ -43,7 +43,7 @@ function addProduct() {
     productContainer.push(product);
     localStorage.setItem("productList", JSON.stringify(productContainer));
     disblayProduct();
-    // clearForm();
+     clearForm();
     
   } 
 }
@@ -134,7 +134,7 @@ function addUpdate()
 
 function validtionName()
 {
-  var ragex = /^[A-Z][a-z]{3,8}[0-9]{1,3}$/
+  var ragex = /^[A-Za-z0-9]{1,20}$/
   if(ragex.test(productNameInput.value)){
 
     
@@ -150,7 +150,7 @@ function validtionName()
 
 function validtionPrice()
 {
-  var ragex = /^[0-9]{2,5}$/
+  var ragex = /^[0-9]{1,10}$/
   if(ragex.test(productPriceInput.value)){
 
     
@@ -167,7 +167,7 @@ function validtionPrice()
 
 function validtionCategory()
 {
-  var ragex = /^[a-z]{2,10}$/
+  var ragex = /^[A-Za-z0-9]{1,20}$/
   if(ragex.test(productCategoryInput.value)){
 
     
@@ -184,7 +184,7 @@ function validtionCategory()
 function validtiondesc()
 {
 
-  var ragex = /^[a-z]{3,15}$/
+  var ragex = /^[A-Za-z0-9]{1,20}$/
   if(ragex.test(productDescInput.value)){
     alertdesc.style.display ="none"
     return true
